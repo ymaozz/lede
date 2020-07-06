@@ -50,7 +50,7 @@ jobs:
           ./scripts/feeds install -a
 
       - name: Generate configuration file
-        run: make xconfig
+        run: make xconfig || make -j1 V=s
 
       - name: Make download
         run: |

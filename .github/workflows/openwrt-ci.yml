@@ -12,7 +12,7 @@ name: OpenWrt-CI
 on:
   schedule:
     - cron: 0 20 * * *
-  push:
+# push:
     branches: 
       - master
 
@@ -50,7 +50,10 @@ jobs:
           ./scripts/feeds install -a
 
       - name: Generate configuration file
-        run: make config
+        run: |
+          cd openwrt
+          rm -f .config
+          cp ../openwrt-config/x64-master .config
 
       - name: Make download
         run: |

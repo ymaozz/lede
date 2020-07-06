@@ -51,7 +51,6 @@ jobs:
 
       - name: Generate configuration file
         run: |
-          cd openwrt
           rm -f .config
           cp ../lede/x64-master .config
 
